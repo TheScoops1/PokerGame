@@ -20,9 +20,18 @@ def MainGameplayLoop():
     MainGame.dealToBoard(True)
 
     while running == True:
-        #put main gameplay loop here
-        break
-
+        allIn = False
+        for player in MainGame.playerHands:
+            betRoundResponse = MainGame.betRound(player, allIn)
+            if betRoundResponse == "all in":
+                allin = True
+        for player in MainGame.playerHands:
+            if player.lastBetResponse == "all":
+                fullDeal = True
+            if player.lastBetResponse == "bet":
+                singleDeal = True:
+        if singleDeal:
+            MainGame.dealToBoard(False, )
 
 if __name__ == '__main__':
     MainGameplayLoop()
